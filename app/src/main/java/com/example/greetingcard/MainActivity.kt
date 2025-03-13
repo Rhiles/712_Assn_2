@@ -28,15 +28,19 @@ class MainActivity : ComponentActivity() {
                     onImplicitClick = {
                         val intent = Intent("com.example.OPEN_SECOND_ACTIVITY")
                         startActivity(intent)
+                    },
+                    onViewImageClick = {
+                        val intent = Intent(this, ImageActivity::class.java)
+                        startActivity(intent)
                     }
                 )
-                }
             }
         }
     }
+}
 
 @Composable
-fun MainScreen(onExplicitClick: () -> Unit, onImplicitClick: () -> Unit) {
+fun MainScreen(onExplicitClick: () -> Unit, onImplicitClick: () -> Unit, onViewImageClick: () -> Unit) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Column(
             modifier = Modifier
@@ -45,7 +49,7 @@ fun MainScreen(onExplicitClick: () -> Unit, onImplicitClick: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "Reed Hiles 1357069")
+            Text(text = "Hello, my name is Reed!")
             Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = onExplicitClick) {
                 Text("Start Activity Explicitly")
@@ -54,13 +58,18 @@ fun MainScreen(onExplicitClick: () -> Unit, onImplicitClick: () -> Unit) {
             Button(onClick = onImplicitClick) {
                 Text("Start Activity Implicitly")
             }
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(onClick = onViewImageClick) {
+                Text("View Image Activity")
+            }
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
     GreetingCardTheme {
-        MainScreen({}, {})
+        MainScreen({}, {}, {})
     }
 }
