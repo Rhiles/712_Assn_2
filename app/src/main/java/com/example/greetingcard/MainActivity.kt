@@ -49,7 +49,7 @@ fun MainScreen(onExplicitClick: () -> Unit, onImplicitClick: () -> Unit, onViewI
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "Hello, my name is Reed!")
+            Text(text = "Reed Hiles 1357069")
             Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = onExplicitClick) {
                 Text("Start Activity Explicitly")
